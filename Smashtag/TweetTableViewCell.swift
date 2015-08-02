@@ -15,6 +15,10 @@ class TweetTableViewCell: UITableViewCell
             updateUI()
         }
     }
+ 
+    @IBInspectable var hashtagColor = UIColor.orangeColor()
+    @IBInspectable var userMentionColor = UIColor.purpleColor()
+    @IBInspectable var urlColor = UIColor.blueColor()
     
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
@@ -31,7 +35,25 @@ class TweetTableViewCell: UITableViewCell
         // load new information from our tweet (if any)
         if let tweet = self.tweet
         {
-            tweetTextLabel?.text = tweet.text
+            var tweetAttributedText = NSMutableAttributedString(string: tweet.text)
+            
+            for hashtag in tweet.hashtags {
+                tweetAttributedText.addAttribute(NSForegroundColorAttributeName,
+                    value: hashtagColor, range: hashtag.nsrange)
+            }
+            
+            for userMention in tweet.userMentions {
+                tweetAttributedText.addAttribute(NSForegroundColorAttributeName,
+                    value: userMentionColor, range: userMention.nsrange)
+            }
+            
+            for url in tweet.urls {
+                tweetAttributedText.addAttribute(NSForegroundColorAttributeName,
+                    value: urlColor, range: url.nsrange)
+            }
+
+            tweetTextLabel?.attributedText = tweetAttributedText
+            
             if tweetTextLabel?.text != nil  {
                 for _ in tweet.media {
                     tweetTextLabel.text! += " 📷"
