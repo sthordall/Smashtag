@@ -114,6 +114,25 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
 
         return cell
     }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if var dvc = segue.destinationViewController as? UIViewController {
+            switch segue.identifier! {
+            case "TweetDetail":
+                let tweetDetailTVC = dvc as? TweetDetailTableViewController
+                let senderCell = sender as? TweetTableViewCell
+                tweetDetailTVC?.tweet = senderCell?.tweet
+            default:
+                print("Destination View Controller has unknown ID")
+            }
+        }
+        
+        
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -150,13 +169,4 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
