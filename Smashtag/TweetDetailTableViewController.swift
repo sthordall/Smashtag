@@ -85,6 +85,23 @@ class TweetDetailTableViewController: UITableViewController {
         return sections[section]
     }
 
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if var dvc = segue.destinationViewController as? UIViewController {
+            switch segue.identifier! {
+            case "IndexedKeywordSearch":
+                let tweetTVC = dvc as? TweetTableViewController
+                let senderCell = sender as? UITableViewCell
+                tweetTVC?.searchText = senderCell?.textLabel?.text
+            default:
+                print("Destination View Controller has unknown ID")
+            }
+        }
+
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -120,14 +137,6 @@ class TweetDetailTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

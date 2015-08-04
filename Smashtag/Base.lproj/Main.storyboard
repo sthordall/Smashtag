@@ -131,6 +131,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="MxJ-wT-guP" kind="show" identifier="IndexedKeywordSearch" id="vZD-0E-htA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -163,4 +166,7 @@
             <point key="canvasLocation" x="-1331" y="238"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vZD-0E-htA"/>
+    </inferredMetricsTieBreakers>
 </document>
