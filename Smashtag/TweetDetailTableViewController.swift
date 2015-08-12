@@ -118,6 +118,23 @@ class TweetDetailTableViewController: UITableViewController {
 
     // MARK: - Navigation
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        // Intercepting to open browser instead, when url
+        if identifier == Storyboard.IndexedKeywordSearchSegueIdentifier {
+            if let tableCell = sender as? UITableViewCell {
+                if let url = tableCell.textLabel?.text {
+                    if let nsUrl = NSURL(string: url) {
+                        if UIApplication.sharedApplication().canOpenURL(nsUrl) {
+                            UIApplication.sharedApplication().openURL(nsUrl)
+                            return false
+                        }
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if var dvc = segue.destinationViewController as? UIViewController {
             switch segue.identifier! {
