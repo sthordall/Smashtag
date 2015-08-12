@@ -142,14 +142,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8c-Iw-mH2">
-                                            <rect key="frame" x="8" y="8" width="584" height="188.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="204.5"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="e8c-Iw-mH2" secondAttribute="trailing" id="WMm-Ij-jxy"/>
-                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="top" secondItem="Wyt-17-y9a" secondAttribute="topMargin" id="aLB-4d-uNb"/>
-                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="leading" secondItem="Wyt-17-y9a" secondAttribute="leadingMargin" id="qFf-4f-raU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="e8c-Iw-mH2" secondAttribute="bottom" id="wpI-fR-icn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="e8c-Iw-mH2" secondAttribute="trailing" constant="-8" id="WMm-Ij-jxy"/>
+                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="top" secondItem="Wyt-17-y9a" secondAttribute="topMargin" constant="-8" id="aLB-4d-uNb"/>
+                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="leading" secondItem="Wyt-17-y9a" secondAttribute="leadingMargin" constant="-8" id="qFf-4f-raU"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="e8c-Iw-mH2" secondAttribute="bottom" constant="-8" id="wpI-fR-icn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

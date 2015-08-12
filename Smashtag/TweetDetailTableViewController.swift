@@ -46,7 +46,7 @@ class TweetDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
-        navigationItem.title = "Tweet"
+        navigationItem.title = tweet?.user.screenName
     }
 
     // MARK: - Table view data source
