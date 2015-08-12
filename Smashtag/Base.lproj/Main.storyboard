@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A234d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2B5-RH-JcP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2B5-RH-JcP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -135,22 +135,26 @@
                                     <segue destination="MxJ-wT-guP" kind="show" identifier="IndexedKeywordSearch" id="vZD-0E-htA"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageTableViewCell" id="Hbp-Zq-v10" customClass="ImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" rowHeight="205" id="QES-t7-d3P" userLabel="ImageTableViewCell" customClass="ImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hbp-Zq-v10" id="uA9-Bg-fq9">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QES-t7-d3P" id="Wyt-17-y9a">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1Y-Sg-bHP">
-                                            <rect key="frame" x="0.0" y="1" width="600" height="43"/>
-                                            <animations/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8c-Iw-mH2">
+                                            <rect key="frame" x="8" y="8" width="584" height="188.5"/>
                                         </imageView>
                                     </subviews>
-                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="e8c-Iw-mH2" secondAttribute="trailing" id="WMm-Ij-jxy"/>
+                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="top" secondItem="Wyt-17-y9a" secondAttribute="topMargin" id="aLB-4d-uNb"/>
+                                        <constraint firstItem="e8c-Iw-mH2" firstAttribute="leading" secondItem="Wyt-17-y9a" secondAttribute="leadingMargin" id="qFf-4f-raU"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="e8c-Iw-mH2" secondAttribute="bottom" id="wpI-fR-icn"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <connections>
-                                    <outlet property="mediaItemImageView" destination="H1Y-Sg-bHP" id="yCt-UV-ZfK"/>
+                                    <outlet property="mediaItemImageView" destination="e8c-Iw-mH2" id="KjV-OA-G9q"/>
+                                    <segue destination="wyG-XY-xZF" kind="show" identifier="ShowDetailImage" id="T7e-rZ-kyg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,6 +167,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JR6-Zf-uuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="179" y="238"/>
+        </scene>
+        <!--Detail Image View Controller-->
+        <scene sceneID="vym-Tp-bEj">
+            <objects>
+                <viewController id="wyG-XY-xZF" customClass="DetailImageViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jRp-Ct-7Be"/>
+                        <viewControllerLayoutGuide type="bottom" id="NJd-2W-fNt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ELb-cN-tp9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-hU-NhT">
+                                <rect key="frame" x="-5" y="0.0" width="605" height="600"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Ybh-hU-NhT" firstAttribute="top" secondItem="ELb-cN-tp9" secondAttribute="topMargin" id="1cG-PY-6L4"/>
+                            <constraint firstItem="Ybh-hU-NhT" firstAttribute="leading" secondItem="ELb-cN-tp9" secondAttribute="leadingMargin" id="30i-o4-0ne"/>
+                            <constraint firstItem="Ybh-hU-NhT" firstAttribute="top" secondItem="ELb-cN-tp9" secondAttribute="top" id="XJt-dp-fls"/>
+                            <constraint firstAttribute="trailing" secondItem="Ybh-hU-NhT" secondAttribute="trailing" id="Xzt-G2-WtX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ybh-hU-NhT" secondAttribute="trailing" id="dK7-TK-Pxe"/>
+                            <constraint firstItem="Ybh-hU-NhT" firstAttribute="bottom" secondItem="NJd-2W-fNt" secondAttribute="top" id="os1-ad-YTr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Ybh-hU-NhT" secondAttribute="bottom" id="sqS-o5-QBf"/>
+                            <constraint firstItem="Ybh-hU-NhT" firstAttribute="leading" secondItem="ELb-cN-tp9" secondAttribute="leadingMargin" constant="-21" id="zko-Lb-jlK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1cG-PY-6L4"/>
+                                <exclude reference="30i-o4-0ne"/>
+                                <exclude reference="dK7-TK-Pxe"/>
+                                <exclude reference="sqS-o5-QBf"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="SNC-DP-syx" appends="YES" id="kzB-P9-SZU"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Si0-4P-7jm"/>
+                    <connections>
+                        <outlet property="imageView" destination="Ybh-hU-NhT" id="qTg-bu-joC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4O-a3-gy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="SNC-DP-syx">
+                    <connections>
+                        <action selector="pinchGestureRecognizer:" destination="wyG-XY-xZF" id="fEh-mv-85N"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="872" y="238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdK-NY-9BI">
