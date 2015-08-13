@@ -119,7 +119,7 @@ class TweetDetailTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        // Intercepting to open browser instead, when url
+        // Intercepting to open browser instead, when click cell is an URL
         if identifier == Storyboard.IndexedKeywordSearchSegueIdentifier {
             if let tableCell = sender as? UITableViewCell {
                 if let url = tableCell.textLabel?.text {
