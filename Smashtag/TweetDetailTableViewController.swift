@@ -139,7 +139,8 @@ class TweetDetailTableViewController: UITableViewController {
         if var dvc = segue.destinationViewController as? UIViewController {
             switch segue.identifier! {
             case Storyboard.IndexedKeywordSearchSegueIdentifier:
-                let tweetTVC = dvc as? TweetTableViewController
+                let tabVC = dvc as? UITabBarController
+                let tweetTVC = tabVC?.childViewControllers[0] as? TweetTableViewController
                 let senderCell = sender as? UITableViewCell
                 tweetTVC?.searchText = senderCell?.textLabel?.text
             case Storyboard.DetailImageSegueIdentifier:

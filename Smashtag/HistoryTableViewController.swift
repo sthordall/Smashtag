@@ -10,26 +10,43 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var history: [String] {
+        get{return TweetHistory.history}
     }
     
-
-    /*
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    // MARK: Data Source
+    private struct Storyboard {
+        static let HistoryCellReuseIdentifier = "HistoryTweetSearch"
+        static let HistorySearchSegueIdentifier = "HistorySearchSegue"
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.HistoryCellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        cell.textLabel?.text = history[indexPath.row]
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return history.count
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if var dvc = segue.destinationViewController as? UIViewController {
+            switch segue.identifier! {
+            case Storyboard.HistorySearchSegueIdentifier:
+                let tabVC = dvc as? UITabBarController
+                let tweetTVC = tabVC?.childViewControllers[0] as? TweetTableViewController
+                let senderCell = sender as? UITableViewCell
+                tweetTVC?.searchText = senderCell?.textLabel?.text
+            default:
+                print("Destination View Controller has unknown ID")
+            }
+        }
     }
-    */
-
 }
